@@ -69,6 +69,8 @@
     <Compile Include="DataAccess\TwitterAuthorize.cs" />
     <Compile Include="DataAccess\TwitterDataLayer.cs" />
     <Compile Include="Models\Tweet.cs" />
+    <Compile Include="ViewModels\DelegateCommand.cs" />
+    <Compile Include="ViewModels\MainWindowViewModel.cs" />
     <Compile Include="ViewModels\ViewModelBase.cs" />
     <Page Include="DataTemplates.xaml">
       <SubType>Designer</SubType>

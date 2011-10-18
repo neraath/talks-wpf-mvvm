@@ -39,7 +39,7 @@
         {
             get
             {
-                return accessToken.ScreenName;
+                return accessToken != null ? accessToken.ScreenName : string.Empty;
             }
         }
 
@@ -49,6 +49,14 @@
             {
                 return accessToken != null && !string.IsNullOrEmpty(accessToken.Token) &&
                        !string.IsNullOrEmpty(accessToken.TokenSecret);
+            }
+        }
+
+        public bool HasSubmittedRequest
+        {
+            get
+            {
+                return requestToken != null;
             }
         }
 

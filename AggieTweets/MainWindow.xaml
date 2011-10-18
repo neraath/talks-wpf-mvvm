@@ -23,17 +23,17 @@
                 <ColumnDefinition Width="*" />
             </Grid.ColumnDefinitions>
             <Label FontWeight="Bold" Grid.Column="0">Authorized As:</Label>
-            <Label Name="AuthorizedUser" Grid.Column="1" />
-            <Button Name="Reauthorize" Click="Reauthorize_Click" Content="Reauthorize" HorizontalAlignment="Right" Grid.Column="2" Margin="5,0" />
+            <Label Name="AuthorizedUser" Content="{Binding AuthorizedUser}" Foreground="{Binding AuthorizedUserColor}" Grid.Column="1" />
+            <Button Name="Reauthorize" Command="{Binding Reauthorize}" Content="Reauthorize" HorizontalAlignment="Right" Grid.Column="2" Margin="5,0" />
         </Grid>
         <StackPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,10,0,10">
             <StackPanel Orientation="Horizontal">
                 <Label FontWeight="Bold" FontSize="24" Padding="5">Access Token:</Label>
-                <TextBox Width="200" FontSize="24" Padding="5" Name="Token" />
+                <TextBox Width="200" FontSize="24" Padding="5" Name="Token" Text="{Binding Pin, UpdateSourceTrigger=PropertyChanged}" />
             </StackPanel>
-            <Button Name="UpdateToken" Click="UpdateToken_Click" Content="Update Token" Margin="0,10,0,10" Width="100" />
+            <Button Name="UpdateToken" Command="{Binding UpdateAuthorization}" Content="Update Token" Margin="0,10,0,10" Width="100" />
         </StackPanel>
-        <ListView Name="Tweets" Grid.Row="2" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
-        <Button Name="RefreshTweets" Click="RefreshTweets_Click" HorizontalAlignment="Center" Content="Refresh Tweets" Grid.Row="3" Padding="5" Margin="5" />
+        <ListView Name="Tweets" Grid.Row="2" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Tweets}" />
+        <Button Name="RefreshTweets" Command="{Binding GetTweets}" HorizontalAlignment="Center" Content="Refresh Tweets" Grid.Row="3" Padding="5" Margin="5" />
     </Grid>
 </Window>
