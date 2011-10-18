@@ -30,7 +30,7 @@
                         {
                             Author = individualTweet.User.ScreenName,
                             CreatedDate = individualTweet.CreatedDate,
-                            Messsage = individualTweet.Text
+                            Message = individualTweet.Text
                         });
             }
 
@@ -50,7 +50,7 @@
                         {
                             Author = individualTweet.User.ScreenName,
                             CreatedDate = individualTweet.CreatedDate,
-                            Messsage = individualTweet.Text
+                            Message = individualTweet.Text
                         });
             }
 

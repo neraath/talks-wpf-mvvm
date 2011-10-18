@@ -2,6 +2,13 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         Title="MainWindow" Height="350" Width="525">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="DataTemplates.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.RowDefinitions>
             <RowDefinition Height="auto" />
@@ -26,7 +33,7 @@
             </StackPanel>
             <Button Name="UpdateToken" Click="UpdateToken_Click" Content="Update Token" Margin="0,10,0,10" Width="100" />
         </StackPanel>
-        <DataGrid Grid.Row="2" AutoGenerateColumns="True" Name="Tweets" />
+        <ListView Name="Tweets" Grid.Row="2" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" />
         <Button Name="RefreshTweets" Click="RefreshTweets_Click" HorizontalAlignment="Center" Content="Refresh Tweets" Grid.Row="3" Padding="5" Margin="5" />
     </Grid>
 </Window>
