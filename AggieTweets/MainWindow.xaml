@@ -33,7 +33,8 @@
             </StackPanel>
             <Button Name="UpdateToken" Command="{Binding UpdateAuthorization}" Content="Update Token" Margin="0,10,0,10" Width="100" />
         </StackPanel>
-        <ListView Name="Tweets" Grid.Row="2" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Tweets}" />
+        <ListView Name="Tweets" Grid.Row="2" HorizontalContentAlignment="Stretch" ScrollViewer.HorizontalScrollBarVisibility="Disabled" ItemsSource="{Binding Tweets}"
+                  />
         <Button Name="RefreshTweets" Command="{Binding GetTweets}" HorizontalAlignment="Center" Content="Refresh Tweets" Grid.Row="3" Padding="5" Margin="5" />
     </Grid>
 </Window>

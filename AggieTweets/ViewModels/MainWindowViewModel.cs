@@ -3,6 +3,7 @@
     using System;
     using System.Collections.Generic;
     using System.Collections.ObjectModel;
+    using System.Linq;
     using System.Windows;
     using System.Windows.Controls;
     using System.Windows.Input;
@@ -18,7 +19,7 @@
         private DelegateCommand updateAuthorizationCommand;
         private DelegateCommand refreshTweetsCommand;
         private TwitterAuthorize authorization = new TwitterAuthorize();
-        private ObservableCollection<Tweet> tweets;
+        private ObservableCollection<TweetViewModel> tweets;
         private string pin;
 
         public MainWindowViewModel(string urlToAuthorize)
@@ -97,7 +98,7 @@
             }
         }
 
-        public ObservableCollection<Tweet> Tweets
+        public ObservableCollection<TweetViewModel> Tweets
         {
             get
             {
@@ -146,8 +147,9 @@
         {
             var dataLayer = new TwitterDataLayer(authorization.Tokens);
             IEnumerable<Tweet> mytweets = dataLayer.GetMyTweets();
+            var tweetViewModels = from tweet in mytweets select new TweetViewModel(tweet);
 
-            this.Tweets = new ObservableCollection<Tweet>(mytweets);
+            this.Tweets = new ObservableCollection<TweetViewModel>(tweetViewModels);
         }
 
         private bool CanUpdateToken()

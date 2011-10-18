@@ -1,9 +1,10 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Models="clr-namespace:AggieTweets.Models">
-    <DataTemplate DataType="{x:Type Models:Tweet}">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:Models="clr-namespace:AggieTweets.Models" xmlns:ViewModels="clr-namespace:AggieTweets.ViewModels">
+    <DataTemplate DataType="{x:Type ViewModels:TweetViewModel}">
         <DockPanel>
             <TextBlock DockPanel.Dock="Left" Text="{Binding Author}" Margin="5" />
             <TextBlock DockPanel.Dock="Bottom" HorizontalAlignment="Right" Text="{Binding CreatedDate}" FontSize="10" />
+            <Button DockPanel.Dock="Left" Content="Edit" Command="{Binding EditTweet}" />
             <TextBlock Text="{Binding Message}" Margin="5" FontSize="18" TextWrapping="WrapWithOverflow" />
         </DockPanel>
     </DataTemplate>
