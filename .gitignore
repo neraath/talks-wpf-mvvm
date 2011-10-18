@@ -1,0 +1,6 @@
+
+*.suo
+*.user
+/AggieTweets/obj
+/AggieTweets/bin
+/_ReSharper.AggieTweets
