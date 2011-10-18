@@ -1,0 +1,32 @@
+﻿<Window x:Class="AggieTweets.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="350" Width="525">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <Grid Grid.Row="0" Height="24">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Label FontWeight="Bold" Grid.Column="0">Authorized As:</Label>
+            <Label Name="AuthorizedUser" Grid.Column="1" />
+            <Button Name="Reauthorize" Click="Reauthorize_Click" Content="Reauthorize" HorizontalAlignment="Right" Grid.Column="2" Margin="5,0" />
+        </Grid>
+        <StackPanel HorizontalAlignment="Center" Grid.Row="1" Margin="0,10,0,10">
+            <StackPanel Orientation="Horizontal">
+                <Label FontWeight="Bold" FontSize="24" Padding="5">Access Token:</Label>
+                <TextBox Width="200" FontSize="24" Padding="5" Name="Token" />
+            </StackPanel>
+            <Button Name="UpdateToken" Click="UpdateToken_Click" Content="Update Token" Margin="0,10,0,10" Width="100" />
+        </StackPanel>
+        <DataGrid Grid.Row="2" AutoGenerateColumns="True" Name="Tweets" />
+        <Button Name="RefreshTweets" Click="RefreshTweets_Click" HorizontalAlignment="Center" Content="Refresh Tweets" Grid.Row="3" Padding="5" Margin="5" />
+    </Grid>
+</Window>
